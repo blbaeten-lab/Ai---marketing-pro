@@ -1,1 +1,99 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Marketing Pro</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fc;color:#18243b}
+header{background:#17234a;color:white;padding:22px;text-align:center}
+header h1{margin:0;font-size:26px}
+header p{color:#d7e0ff}
+main{max-width:850px;margin:auto;padding:20px}
+.hero{text-align:center;padding:25px 5px}
+h2{color:#17234a}
+.card{background:white;border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 3px 14px #15244915}
+button{background:#465cf5;color:white;border:0;border-radius:10px;padding:15px 20px;font-size:16px;font-weight:bold;width:100%;cursor:pointer}
+button:active{background:#273bc5}
+input,select{width:100%;padding:14px;margin:7px 0 15px;border:1px solid #bdc7da;border-radius:9px;font-size:16px}
+label{font-weight:bold}
+.price{font-size:29px;font-weight:bold;color:#465cf5}
+.post{background:#eef2ff;padding:16px;margin:12px 0;border-radius:10px;line-height:1.5}
+small{color:#65718b}
+footer{text-align:center;padding:30px;color:#667}
+</style>
+</head>
+<body>
+<header>
+<h1>✨ AI Marketing Pro</h1>
+<p>Smarter marketing for growing businesses</p>
+</header>
+<main>
+<section class="hero">
+<h2>Grow your business with better content</h2>
+<p>Create social media post ideas in seconds. Try our free demo below!</p>
+</section>
+<section class="card">
+<h2>✨ Free Post Generator</h2>
+<label>Business name</label>
+<input id="business" placeholder="Sunny Side Cleaning">
+<label>Business type</label>
+<select id="category">
+<option>Cleaning</option>
+<option>Landscaping</option>
+<option>Auto detailing</option>
+<option>Restaurant</option>
+<option>Pet grooming</option>
+<option>Other small business</option>
+</select>
+<label>What are you promoting?</label>
+<input id="offer" placeholder="Our services">
+<button type="button" onclick="generatePosts()">Generate 3 Sample Posts</button>
+<div id="results" aria-live="polite"></div>
+<small>Free demo uses customizable templates. Full AI generation is coming later.</small>
+</section>
+<section class="card">
+<h2>Simple Monthly Plans</h2>
+<h3>Starter</h3><div class="price">$99/month</div>
+<p>12 social media posts and a monthly content calendar.</p>
+<hr>
+<h3>Growth</h3><div class="price">$249/month</div>
+<p>20 posts, promotion ideas, and review response drafts.</p>
+<hr>
+<h3>Business Pro</h3><div class="price">$499/month</div>
+<p>30 posts, marketing calendar, promotional campaigns, and priority support.</p>
+<p><small>Plans are proposed packages, not yet available for purchase.</small></p>
+</section>
+<section class="card">
+<h2>Interested in working with us?</h2>
+<p>We are preparing our first customer pilot. Contact us when enrollment opens.</p>
+</section>
+</main>
+<footer>© 2026 AI Marketing Pro · Demo website</footer>
+<script>
+function generatePosts(){
+var name=document.getElementById('business').value.trim()||'Your Business';
+var category=document.getElementById('category').value;
+var offer=document.getElementById('offer').value.trim()||'our services';
+var posts=[
+'✨ Looking for '+category.toLowerCase()+' services? '+name+' is here to help! Ask us about '+offer+' today.',
+'🌟 At '+name+', we care about making your experience great. What matters most to you when choosing '+category.toLowerCase()+' services?',
+'📣 Ready to get started? Discover '+offer+' with '+name+'. Send us a message to learn more!'
+];
+var result=document.getElementById('results');
+result.innerHTML='';
+var heading=document.createElement('h3');
+heading.textContent='Your 3 Sample Posts';
+result.appendChild(heading);
+posts.forEach(function(post,i){
+var div=document.createElement('div');
+div.className='post';
+div.textContent='Post '+(i+1)+': '+post;
+result.appendChild(div);
+});
+result.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
